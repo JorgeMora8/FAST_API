@@ -27,6 +27,7 @@ class LoginUserSchema(BaseModel):
 
 
 class Product(BaseModel): 
+    id : str
     name : str
     price : int 
     inventory : int 
