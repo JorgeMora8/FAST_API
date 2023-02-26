@@ -22,12 +22,22 @@ class UserSchema(BaseModel):
 
 
 class LoginUserSchema(BaseModel): 
-    email = str
-    password = str
+    email : str
+    password : str
 
 
 class Product(BaseModel): 
-    id : str
+    # id : str
     name : str
     price : int 
     inventory : int 
+
+from ..DAO.productDAO import base
+from sqlalchemy import Column, Integer, String, Boolean, DateTime
+
+class Product_SQL(base): 
+    __tablename__ = "Product_SA"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String)
+    price = Column(Integer) 
+    inventory = Column(Integer)
